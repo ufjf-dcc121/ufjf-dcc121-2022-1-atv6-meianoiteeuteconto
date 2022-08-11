@@ -18,9 +18,12 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="shortcut icon" href="img/incon.png" type="image/x-icon">
     <title>ALGOMON</title>
+    <link rel="stylesheet" href="./css/style.css">
 </head>
 <body>
-    
+    <main id="game">
+
+    </main>
     
 
     <script>
@@ -46,12 +49,12 @@
                     } 
                 }
             }
-            document.querySelector("body").innerHTML = `
+            document.querySelector("main").innerHTML = `
                 <pre>
                     ${premap}
                 </pre>
             `;
-        })
+        });
         /*
         void imprimirMapa() {
             printf("\n");
