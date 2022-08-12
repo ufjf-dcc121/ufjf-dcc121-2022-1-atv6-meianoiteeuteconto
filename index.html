@@ -22,7 +22,8 @@
 </head>
 <body>
     <main id="game">
-
+        <pre>
+        </pre>
     </main>
     
 
@@ -49,12 +50,8 @@
                     } 
                 }
             }
-            document.querySelector("main").innerHTML = `
-                <pre>
-                    ${premap}
-                </pre>
-            `;
-        });
+            document.querySelector("pre").innerHTML = `${premap}`;
+        }); 
         /*
         void imprimirMapa() {
             printf("\n");
