@@ -46,3 +46,31 @@ main {
     background: #6F7E35;
     box-shadow: inset 0px 0px 8.10467px 1.62093px rgba(0, 0, 0, 0.67);
 }
+
+#batery {
+    display: flex;
+    flex-flow: column;
+    align-items: center;
+    justify-content: center;
+    position: absolute;
+    margin-top: 74.93px;
+    margin-left: 5.79px;
+    width: 30.88px;
+    height: 20.58px;
+}
+
+#batery > h1 {
+    font-family: 'Gill Sans MT';
+    font-style: italic;
+    font-weight: 400;
+    font-size: 10.2918px;
+    line-height: 12px;
+}
+
+#led {
+    width: 8.23px;
+    height: 8.23px;
+    background: #65FF57;
+    border: 0.514592px solid #000000;
+    border-radius: 50%;
+}
