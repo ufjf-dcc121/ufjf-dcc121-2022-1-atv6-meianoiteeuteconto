@@ -16,11 +16,11 @@ body {
 }
 
 main {
-    width: auto;
-    padding: 20px 10px;
-    border: solid 3px black;
-    height: 100vh;
-    border-radius: 20px;
+    width: 277.18px;
+    height: 573px;
+    background: #E3E3E3;
+    border: 1px solid #000000;
+    border-radius: 36px;
 }
 
 pre {
