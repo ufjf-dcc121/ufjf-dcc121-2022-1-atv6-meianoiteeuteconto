@@ -27,10 +27,10 @@ main {
     background: #E3E3E3;
     border: 1px solid #000000;
     border-radius: 36px;
+    padding: 15px;
 }
 
 #gamearea {
-    margin-top: 15px;
     width: 245.57px;
     height: 207.48px;
     background: #545970;
@@ -42,7 +42,7 @@ main {
     justify-content: center;
     align-items: center;
     position: absolute;
-    margin-top: 22.69px;  
+    margin-top: 22.69px;
     margin-left: 41.33px;
     width: 162.09px;
     height: 162.09px;
@@ -62,7 +62,7 @@ main {
     height: 20.58px;
 }
 
-#batery > h1 {
+#batery>h1 {
     font-family: 'Gill Sans MT';
     font-style: italic;
     font-weight: 400;
@@ -87,4 +87,40 @@ main {
     font-weight: 400;
     font-size: 10.9837px;
     line-height: 13px;
+}
+
+#titlegame {
+    margin: 10px 0;
+    width: 100%;
+    display: flex;
+    justify-content: left;
+}
+
+#marca {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 69.99px;
+    height: 22.05px;
+    border: 0.958703px solid #000000;
+    border-radius: 9.58703px;
+    margin-right: 5px;
+}
+
+#marca>h2 {
+    margin-top: -1px;
+    font-family: 'Concert One';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 19.1741px;
+    line-height: 15px;
+    text-align: right;
+}
+
+#titlegame>h2 {
+    font-family: 'Gill Sans MT';
+    font-style: italic;
+    font-weight: 400;
+    font-size: 19.1741px;
+    line-height: 22px;
 }
