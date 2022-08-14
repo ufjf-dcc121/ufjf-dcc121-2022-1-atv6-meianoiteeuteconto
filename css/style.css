@@ -38,6 +38,9 @@ main {
 }
 
 #screengame {
+    display: flex;
+    justify-content: center;
+    align-items: center;
     position: absolute;
     margin-top: 22.69px;  
     margin-left: 41.33px;
@@ -73,4 +76,15 @@ main {
     background: #65FF57;
     border: 0.514592px solid #000000;
     border-radius: 50%;
+}
+
+#gamecode {
+    margin-top: -20px;
+    width: 139px;
+    height: 117px;
+    font-family: 'Consolas';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 10.9837px;
+    line-height: 13px;
 }
