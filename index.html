@@ -10,6 +10,13 @@
     8 - Testar e reestruturar códigos (--PRIORIZAR RECICLAGEM DE FUNÇÕES--);
 -->
 
+<!--
+    --- Integrantes do Grupo ---
+    Gustavo de Jesus Furtado, gustavo.furtado@estudante.ufjf.br    , 202176024, Gustav0Furtad0, gufurtado02@gmail.com
+    Leonardo Lima Azevedo   , 15341961617@estudante.ufjf.br        , 202076031, Leozinnnn3    , leozinnnn3@gmail.com
+    Pedro Detoni Pereira    , pedrodetoni.pereira@estudante.ufjf.br, 202176031, pdetoni       , pdpereira2003@gmail.com
+-->
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -31,7 +38,7 @@
     <div class="alinhar">
         <img src = "img/algomon.png">
     </div>
-    
+
     <div class="alinhar">
         <main id="game">
             <div id="gamearea">
@@ -56,41 +63,43 @@
                     <div id="areacontrol">
                         <div id="dot"></div>
                         <div id="arrowsdiv">
+        
                             <div>
                                 <svg width="36" height="31" viewBox="0 0 36 31" fill="none"
                                     xmlns="http://www.w3.org/2000/svg">
-                                    <path
+                                    <path id="up"
                                         d="M19.7948 1.84972L34.6235 27.5338C35.4034 28.8846 34.4285 30.5731 32.8688 30.5731H3.21131C1.65156 30.5731 0.676724 28.8846 1.4566 27.5338L16.2853 1.84972C17.0652 0.498938 19.0149 0.498939 19.7948 1.84972Z"
                                         fill="#454545" stroke="black" stroke-width="0.810467" />
                                 </svg>
                             </div>
-                            <div>
+
+                            <div id="right">
                                 <svg width="31" height="36" viewBox="0 0 31 36" fill="none"
                                     xmlns="http://www.w3.org/2000/svg">
                                     <path
                                         d="M29.1286 19.7948L3.44448 34.6235C2.0937 35.4034 0.40522 34.4285 0.40522 32.8688L0.40522 3.21131C0.40522 1.65156 2.09369 0.676725 3.44447 1.4566L29.1286 16.2853C30.4794 17.0652 30.4794 19.0149 29.1286 19.7948Z"
                                         fill="#454545" stroke="black" stroke-width="0.810467" />
                                 </svg>
-
                             </div>
-                            <div>
+
+                            <div id="down">
                                 <svg width="36" height="31" viewBox="0 0 36 31" fill="none"
                                     xmlns="http://www.w3.org/2000/svg">
                                     <path
                                         d="M16.2853 29.1286L1.4566 3.44448C0.676727 2.09371 1.65157 0.405235 3.21131 0.405235L32.8688 0.405235C34.4285 0.405235 35.4034 2.09371 34.6235 3.44449L19.7948 29.1286C19.0149 30.4794 17.0652 30.4794 16.2853 29.1286Z"
                                         fill="#454545" stroke="black" stroke-width="0.810467" />
                                 </svg>
-
                             </div>
-                            <div>
+
+                            <div id="left">
                                 <svg width="31" height="36" viewBox="0 0 31 36" fill="none"
                                     xmlns="http://www.w3.org/2000/svg">
                                     <path
                                         d="M1.84972 16.2853L27.5338 1.4566C28.8846 0.676727 30.5731 1.65157 30.5731 3.21131V32.8688C30.5731 34.4285 28.8846 35.4034 27.5338 34.6235L1.84972 19.7948C0.498938 19.0149 0.498939 17.0652 1.84972 16.2853Z"
                                         fill="#454545" stroke="black" stroke-width="0.810467" />
                                 </svg>
-
                             </div>
+                        
                         </div>
                     </div>
                 </div>
@@ -98,67 +107,19 @@
 
                 </div>
             </div>
+            
         </main>
     </div>
 
 
+    <script src="./mapa/map.js"></script>
+    <!-- <script src="./mapa/up.js"></script> -->
     <script>
-        var mapa = [
-                ['Z', ' ', ' ', ' ', ' ', ' ', '#', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ',
-                    ' ', ' ', ' '
-                ],
-                ['|', ' ', ' ', ' ', ' ', ' ', '|', ' ', ' ', ' ', ' ', ' ', '#', '-', '-', '-', '-', '-', '#', ' ',
-                    ' ', ' ', ' '
-                ],
-                ['|', ' ', ' ', ' ', ' ', ' ', '|', ' ', ' ', ' ', ' ', ' ', '|', ' ', ' ', ' ', ' ', ' ', '|', ' ',
-                    ' ', ' ', ' '
-                ],
-                ['#', '-', '-', '-', '-', '-', 'A', '-', '-', '-', '-', '-', '#', '-', '-', '-', '-', '-', '#', '-',
-                    '-', '-', 'X'
-                ],
-                [' ', ' ', ' ', ' ', ' ', ' ', '|', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ',
-                    ' ', ' ', '|'
-                ],
-                [' ', ' ', ' ', ' ', ' ', ' ', '|', ' ', ' ', ' ', '#', '-', '-', '-', '-', '-', '-', '-', '-', '-',
-                    '-', '-', '#'
-                ],
-                [' ', ' ', ' ', ' ', ' ', ' ', '|', ' ', ' ', ' ', '|', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ',
-                    ' ', ' ', ' '
-                ],
-                ['Y', '-', '-', '-', '-', '-', '#', '-', '-', '-', '#', '-', '-', '-', '-', '-', '#', '-', '-', '-',
-                    '-', '-', 'R'
-                ]
-            ],
-            cidadeAtual = '?';
-
-        window.addEventListener('load', () => {
-            let premap = "\n"
-            for (i = 0; i < 8; i++) {
-                for (j = 0; j < 23; j++) {
-                    if (j == 22) {
-                        premap += mapa[i][j] + "\n";
-                    } else {
-                        premap += mapa[i][j];
-                    }
-                }
-            }
-            document.querySelector("pre").innerHTML = `${premap}`;
-        });
-        /*
-        void imprimirMapa() {
-            printf("\n");
-            for(int i = 0; i < 8; i++) {
-                for(int j = 0; j < 23; j++) {
-                if(j == 22 ) {
-                    printf("%c\n", mapa[i][j]);
-                } else {
-                    printf("%c", mapa[i][j]);
-                }
-                }
-            }
-            printf("\n\n");
+        window.addEventListener("click", e => {
+        if (e.target.id == "up") {
+            upmoviment(e);
         }
-        */
+        });
     </script>
 </body>
 
