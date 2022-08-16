@@ -21,9 +21,9 @@
     <link rel="stylesheet" href="./css/style.css">
 </head>
 <body>
-    <main id="game">
+    <div id="game">
 
-    </main>
+    </div>
     
 
     <script>
@@ -39,21 +39,17 @@
         ], cidadeAtual = '?';
 
         window.addEventListener('load', () => {
-            let premap = "\n"
+            const game = document.querySelector("#game");
             for (i = 0; i < 8; i++) {
                 for(j = 0; j < 23; j++) {
-                    if (j == 22) {
-                        premap += mapa[i][j] + "\n";
-                    } else {
-                        premap += mapa[i][j];
-                    } 
-                }
-            }
-            document.querySelector("main").innerHTML = `
-                <pre>
-                    ${premap}
-                </pre>
-            `;
+                    game.innerHTML += 
+                    `
+                        <div>
+                            <h1>${mapa[i][j]}</h1>
+                        </div>
+                    `;
+                };  
+            };
         });
         /*
         void imprimirMapa() {

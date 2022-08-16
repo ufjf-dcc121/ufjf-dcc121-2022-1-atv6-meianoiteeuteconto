@@ -13,4 +13,23 @@ img {
 body {
     display: flex;
     justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background: rgb(34, 34, 34);
+}
+
+#game {
+    display: grid;
+    grid-template-columns: repeat(23, 1fr);
+    width: 70%;
+    background: rgb(34, 34, 34);
+    color: white;
+}
+
+#game > div {
+    position: relative;
+    width: 100%;
+    height: 0;
+    padding-bottom: 100%;
+    text-align: center;
 }
