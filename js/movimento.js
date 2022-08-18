@@ -10,6 +10,14 @@ up.addEventListener('click', () => {movimento('up')});
 left.addEventListener('click', () => {movimento('left')});
 right.addEventListener('click', () => {movimento('right')});
 
+const verificaCidAtual = () => {
+    if (cidatual == '#' || cidatual == '+' ||   cidatual == '?'){
+        mapa[perso.ln][perso.cl] = '+';
+    } else if ("ZYXR".includes(cidatual)) {
+        mapa[perso.ln][perso.cl] = cidatual;
+    }
+}
+
 const movimento = mov => {
     for(let i = 0; i < 8; i++) {
         for(let j = 0; j < 23; j++) {
