@@ -23,7 +23,7 @@ body {
 #game {
     display: grid;
     grid-template-columns: repeat(23, 1fr);
-    width: 45%;
+    width: 40%;
     background: rgb(34, 34, 34);
     color: white;
 }
@@ -65,6 +65,15 @@ body {
 #arrowsdiv div:nth-child(4) {
     margin-left: 4.84px;
     margin-top: 37.45px;
+}
+
+#persoscreen {
+    left: 0;
+    top: 0;
+    position: absolute;
+    background-color: aqua;
+    width: 25%;
+    padding: 10px;
 }
 
 @media (max-width: 740px) {
