@@ -34,3 +34,36 @@ body {
     padding-bottom: 100%;
     text-align: center;
 }
+
+#areacontrol {
+    width: 113.47px;
+    height: 113.47px;
+    background: #D9D9D9;
+    box-shadow: inset 0px 0px 4.8628px rgba(0, 0, 0, 0.33);
+    border-radius: 50%;
+}
+
+#arrowsdiv div {
+    position: absolute;
+    width: auto;
+}
+
+#arrowsdiv div:nth-child(1) {
+    margin-left: 37.4px;
+    margin-top: 4.84px;
+}
+
+#arrowsdiv div:nth-child(3) {
+    margin-top: 75.84px;
+    margin-left: 37.4px;
+}
+
+#arrowsdiv div:nth-child(2) {
+    margin-left: 75.84px;
+    margin-top: 37.45px;
+}
+
+#arrowsdiv div:nth-child(4) {
+    margin-left: 4.84px;
+    margin-top: 37.45px;
+}
