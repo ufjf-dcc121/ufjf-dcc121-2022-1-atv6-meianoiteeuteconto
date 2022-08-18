@@ -110,7 +110,7 @@
         const verificaCidAtual = () => {
             if (cidatual == '#' || cidatual == '+' ||   cidatual == '?'){
                 mapa[perso.ln][perso.cl] = '+';
-            } else if (cidatual >= 65 && cidatual <= 90) {
+            } else if ("ZYXR".includes(cidatual)) {
                 mapa[perso.ln][perso.cl] = cidatual;
             }
         }
