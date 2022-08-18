@@ -78,10 +78,10 @@ const algomons = [
         type: "C"
     },
     {
-        nome: "Zelunsio",
-        atk: 5,
+        nome: "Ceeplusplus",
+        atk: 8,
         HP: 50,
-        type: "D"
+        type: "L"
     },
     {
         nome: "Pepeco",
