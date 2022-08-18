@@ -195,6 +195,11 @@
         const left = document.querySelector("#left");
         const right = document.querySelector("#right");
 
+        down.addEventListener('click', () => {movimento('down')});
+        up.addEventListener('click', () => {movimento('up')});
+        left.addEventListener('click', () => {movimento('left')});
+        right.addEventListener('click', () => {movimento('right')});
+
         /*
         void verificaCidAtual() {
             if (cidatual == '#' || cidatual == '+' || cidatual == '?'){
