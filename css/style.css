@@ -83,6 +83,7 @@ body {
 
 #persoscreen td {
     border: 1px solid;
+    padding: 2px;
 }
 
 @media (max-width: 740px) {
