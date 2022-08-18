@@ -11,7 +11,7 @@
 -->
 
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pt-br">
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -26,13 +26,11 @@
     </div>
     <div id="leftcontrol">
         <div id="areacontrol">
-            <div id="dot"></div>
             <div id="arrowsdiv">
-
                 <div id="up">
                     <svg width="36" height="31" viewBox="0 0 36 31" fill="none"
                         xmlns="http://www.w3.org/2000/svg">
-                        <path id="up"
+                        <path
                             d="M19.7948 1.84972L34.6235 27.5338C35.4034 28.8846 34.4285 30.5731 32.8688 30.5731H3.21131C1.65156 30.5731 0.676724 28.8846 1.4566 27.5338L16.2853 1.84972C17.0652 0.498938 19.0149 0.498939 19.7948 1.84972Z"
                             fill="#454545" stroke="black" stroke-width="0.810467" />
                     </svg>
@@ -74,7 +72,11 @@
     </div>
 
     <script>
-        var mapa = [
+        var personagem = {
+            insignias: 0,
+            algomons: {},
+            posicaoMap: [0, 0]
+        }, mapa = [
             ['Z', ' ', ' ', ' ', ' ', ' ', '#', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' '],
             ['|', ' ', ' ', ' ', ' ', ' ', '|', ' ', ' ', ' ', ' ', ' ', '#', '-', '-', '-', '-', '-', '#', ' ', ' ', ' ', ' '],
             ['|', ' ', ' ', ' ', ' ', ' ', '|', ' ', ' ', ' ', ' ', ' ', '|', ' ', ' ', ' ', ' ', ' ', '|', ' ', ' ', ' ', ' '],
@@ -102,21 +104,89 @@
         window.addEventListener('load', () => {
             inserirMapa();
         });
+
+        const up = document.querySelector("#up");
+        const down = document.querySelector("#down");
+        const left = document.querySelector("#left");
+        const right = document.querySelector("#right");
+        
+        up.addEventListener('click', (e) => console.log(e));
         /*
-        void imprimirMapa() {
-            printf("\n");
-            for(int i = 0; i < 8; i++) {
-                for(int j = 0; j < 23; j++) {
-                if(j == 22 ) {
-                    printf("%c\n", mapa[i][j]);
-                } else {
-                    printf("%c", mapa[i][j]);
+        void verificaCidAtual() {
+            if (cidatual == '#' || cidatual == '+' || cidatual == '?'){
+                mapa[perso.ln][perso.cl] = '+';
+            } else if (cidatual >= 65 && cidatual <= 90) {
+                mapa[perso.ln][perso.cl] = cidatual;
+            }
+            }
+
+            void movimento(char mov) {
+            for(i = 0; i < 8; i++) {
+                for(j = 0; j < 23; j++) {
+                if(mapa[i][j] == 'A') {
+                    perso.ln = i;
+                    perso.cl = j;
                 }
                 }
             }
-            printf("\n\n");
-        }
-        */
+            
+            switch (mov) {
+                case 'a':
+                for(i = perso.cl-1; i >= 0; i--){
+                    if(mapa[perso.ln][i] != '-' && mapa[perso.ln][i] != '|' && mapa[perso.ln][i] != ' ') {
+                    verificaCidAtual();
+                    cidatual = mapa[perso.ln][i];
+                    mapa[perso.ln][i] = 'A';
+                    break;
+                    } else if(mapa[perso.ln][i] == ' ') {
+                    break;
+                    }
+                }
+                break;
+
+                
+                case 'd':
+                for(i = perso.cl+1; i < 23; i++){
+                    if(mapa[perso.ln][i] != '-' && mapa[perso.ln][i] != '|' && mapa[perso.ln][i] != ' ') {
+                    verificaCidAtual();
+                    cidatual = mapa[perso.ln][i];
+                    mapa[perso.ln][i] = 'A';
+                    break;
+                    } else if (mapa[perso.ln][i] == ' '){
+                    break;
+                    }
+                }
+                break;
+
+
+                case 'w':
+                for(i = perso.ln-1; i >= 0; i--){
+                    if(mapa[i][perso.cl] != '-' && mapa[i][perso.cl] != '|' && mapa[i][perso.cl] != ' ') {
+                    verificaCidAtual();
+                    cidatual = mapa[i][perso.cl];
+                    mapa[i][perso.cl] = 'A';
+                    break;
+                    } else if(mapa[i][perso.cl] == ' ') {
+                    break;
+                    }
+                }
+                break;
+
+                case 's':
+                for(i = perso.ln+1; i < 8; i++){
+                    if(mapa[i][perso.cl] != '-' && mapa[i][perso.cl] != '|' && mapa[i][perso.cl] != ' ') {
+                    verificaCidAtual();
+                    cidatual = mapa[i][perso.cl];
+                    mapa[i][perso.cl] = 'A';
+                    break;
+                    } else if(mapa[i][perso.cl] == ' ') {
+                    break;
+                    }
+                }
+                break;
+            }
+            }
+        }*/
     </script>
 </body>
 </html>
