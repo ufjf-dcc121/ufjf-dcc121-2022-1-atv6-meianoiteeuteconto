@@ -27,37 +27,37 @@
     <div id="leftcontrol">
         <div id="areacontrol">
             <div id="arrowsdiv">
-                <div id="up">
+                <div >
                     <svg width="36" height="31" viewBox="0 0 36 31" fill="none"
                         xmlns="http://www.w3.org/2000/svg">
-                        <path
+                        <path id="up"
                             d="M19.7948 1.84972L34.6235 27.5338C35.4034 28.8846 34.4285 30.5731 32.8688 30.5731H3.21131C1.65156 30.5731 0.676724 28.8846 1.4566 27.5338L16.2853 1.84972C17.0652 0.498938 19.0149 0.498939 19.7948 1.84972Z"
                             fill="#454545" stroke="black" stroke-width="0.810467" />
                     </svg>
                 </div>
 
-                <div id="right">
+                <div >
                     <svg width="31" height="36" viewBox="0 0 31 36" fill="none"
                         xmlns="http://www.w3.org/2000/svg">
-                        <path
+                        <path id="right"
                             d="M29.1286 19.7948L3.44448 34.6235C2.0937 35.4034 0.40522 34.4285 0.40522 32.8688L0.40522 3.21131C0.40522 1.65156 2.09369 0.676725 3.44447 1.4566L29.1286 16.2853C30.4794 17.0652 30.4794 19.0149 29.1286 19.7948Z"
                             fill="#454545" stroke="black" stroke-width="0.810467" />
                     </svg>
                 </div>
 
-                <div id="down">
+                <div >
                     <svg width="36" height="31" viewBox="0 0 36 31" fill="none"
                         xmlns="http://www.w3.org/2000/svg">
-                        <path
+                        <path id="down"
                             d="M16.2853 29.1286L1.4566 3.44448C0.676727 2.09371 1.65157 0.405235 3.21131 0.405235L32.8688 0.405235C34.4285 0.405235 35.4034 2.09371 34.6235 3.44449L19.7948 29.1286C19.0149 30.4794 17.0652 30.4794 16.2853 29.1286Z"
                             fill="#454545" stroke="black" stroke-width="0.810467" />
                     </svg>
                 </div>
 
-                <div id="left">
-                    <svg width="31" height="36" viewBox="0 0 31 36" fill="none"
+                <div >
+                <svg width="31" height="36" viewBox="0 0 31 36" fill="none"
                         xmlns="http://www.w3.org/2000/svg">
-                        <path
+                        <path id="left"
                             d="M1.84972 16.2853L27.5338 1.4566C28.8846 0.676727 30.5731 1.65157 30.5731 3.21131V32.8688C30.5731 34.4285 28.8846 35.4034 27.5338 34.6235L1.84972 19.7948C0.498938 19.0149 0.498939 17.0652 1.84972 16.2853Z"
                             fill="#454545" stroke="black" stroke-width="0.810467" />
                     </svg>
@@ -79,7 +79,8 @@
             algomons: {},
             ln: 0,
             cl: 0
-        }, mapa = [
+        }, 
+        mapa = [
             ['Z', ' ', ' ', ' ', ' ', ' ', '#', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' '],
             ['|', ' ', ' ', ' ', ' ', ' ', '|', ' ', ' ', ' ', ' ', ' ', '#', '-', '-', '-', '-', '-', '#', ' ', ' ', ' ', ' '],
             ['|', ' ', ' ', ' ', ' ', ' ', '|', ' ', ' ', ' ', ' ', ' ', '|', ' ', ' ', ' ', ' ', ' ', '|', ' ', ' ', ' ', ' '],
@@ -88,10 +89,12 @@
             [' ', ' ', ' ', ' ', ' ', ' ', '|', ' ', ' ', ' ', '#', '-', '-', '-', '-', '-', '-', '-', '-', '-', '-', '-', '#'],
             [' ', ' ', ' ', ' ', ' ', ' ', '|', ' ', ' ', ' ', '|', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' '],
             ['Y', '-', '-', '-', '-', '-', '#', '-', '-', '-', '#', '-', '-', '-', '-', '-', '#', '-', '-', '-', '-', '-', 'R']
-        ], cidatual = '?';
+        ], 
+        cidatual = '?';
 
-        const inserirMapa = () => {
+        const imprimirMapa = () => {
             const game = document.querySelector("#game");
+            game.innerHTML = '';
             for (let i = 0; i < 8; i++) {
                 for(let j = 0; j < 23; j++) {
                     game.innerHTML += 
@@ -149,8 +152,8 @@
                     }
                     break;
 
-                case 'w':
-                    for(i = perso.ln-1; i >= 0; i--){
+                case 'up':
+                    for(let i = perso.ln-1; i >= 0; i--){
                             if(mapa[i][perso.cl] != '-' && mapa[i][perso.cl] != '|' && mapa[i][perso.cl] != ' ') {
                             verificaCidAtual();
                             cidatual = mapa[i][perso.cl];
@@ -162,8 +165,8 @@
                     }
                     break;
 
-                case 's':
-                    for(i = perso.ln+1; i < 8; i++){
+                case 'down':
+                    for(let i = perso.ln+1; i < 8; i++){
                             if(mapa[i][perso.cl] != '-' && mapa[i][perso.cl] != '|' && mapa[i][perso.cl] != ' ') {
                             verificaCidAtual();
                             cidatual = mapa[i][perso.cl];
@@ -175,18 +178,18 @@
                     }
                     break;
             }
+            imprimirMapa();
         }
  
         window.addEventListener('load', () => {
-            inserirMapa();
+            imprimirMapa();
         });
 
         const up = document.querySelector("#up");
         const down = document.querySelector("#down");
         const left = document.querySelector("#left");
         const right = document.querySelector("#right");
-        
-        left.addEventListener('click', movimento('left'));
+
         /*
         void verificaCidAtual() {
             if (cidatual == '#' || cidatual == '+' || cidatual == '?'){
