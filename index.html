@@ -79,9 +79,12 @@
     <script>
         'use strict';
 
+        fetch("./algomons.json")
+        .then()
+
         var perso = {
             insignias: 0,
-            algomons: {},
+            algomons: [],
             ln: 0,
             cl: 0
         }, 
@@ -188,6 +191,7 @@
  
         window.addEventListener('load', () => {
             imprimirMapa();
+            console.log(algomons)
         });
 
         const up = document.querySelector("#up");
