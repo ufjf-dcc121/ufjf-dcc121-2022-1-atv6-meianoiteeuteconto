@@ -76,6 +76,15 @@ body {
     padding: 10px;
 }
 
+#persoscreen > table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+#persoscreen td {
+    border: 1px solid;
+}
+
 @media (max-width: 740px) {
     #game div > h1 {
         font-size: 20px;
