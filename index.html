@@ -1,7 +1,7 @@
 <!--
     v1 - Criar matriz referênciando o mapa algomom;
     2 - Criar estrutura de impressão do mapa;
-    3 - Desenvolver a movimentação do personagem no mapa;
+    3 - Desenvolver a movimentação do perso no mapa;
     4 - Intruduzir estrutura "Algomons" para definição dos mesmos;
     5 - Definir Algomons e localidade de cada um. São 15;
     6 - Implementar algodéx a estrutura Personagem.
@@ -72,10 +72,13 @@
     </div>
 
     <script>
-        var personagem = {
+        'use strict';
+
+        var perso = {
             insignias: 0,
             algomons: {},
-            posicaoMap: [0, 0]
+            ln: 0,
+            cl: 0
         }, mapa = [
             ['Z', ' ', ' ', ' ', ' ', ' ', '#', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' '],
             ['|', ' ', ' ', ' ', ' ', ' ', '|', ' ', ' ', ' ', ' ', ' ', '#', '-', '-', '-', '-', '-', '#', ' ', ' ', ' ', ' '],
@@ -85,12 +88,12 @@
             [' ', ' ', ' ', ' ', ' ', ' ', '|', ' ', ' ', ' ', '#', '-', '-', '-', '-', '-', '-', '-', '-', '-', '-', '-', '#'],
             [' ', ' ', ' ', ' ', ' ', ' ', '|', ' ', ' ', ' ', '|', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' '],
             ['Y', '-', '-', '-', '-', '-', '#', '-', '-', '-', '#', '-', '-', '-', '-', '-', '#', '-', '-', '-', '-', '-', 'R']
-        ], cidadeAtual = '?';
+        ], cidatual = '?';
 
         const inserirMapa = () => {
             const game = document.querySelector("#game");
-            for (i = 0; i < 8; i++) {
-                for(j = 0; j < 23; j++) {
+            for (let i = 0; i < 8; i++) {
+                for(let j = 0; j < 23; j++) {
                     game.innerHTML += 
                     `
                         <div>
@@ -100,6 +103,79 @@
                 };  
             };
         };
+
+        const verificaCidAtual = () => {
+            if (cidatual == '#' || cidatual == '+' ||   cidatual == '?'){
+                mapa[perso.ln][perso.cl] = '+';
+            } else if (cidatual >= 65 && cidatual <= 90) {
+                mapa[perso.ln][perso.cl] = cidatual;
+            }
+        }
+
+        const movimento = mov => {
+            for(let i = 0; i < 8; i++) {
+                for(let j = 0; j < 23; j++) {
+                    if(mapa[i][j] == 'A') {
+                        perso.ln = i;
+                        perso.cl = j;
+                    }
+                }
+            }
+
+            switch (mov) {
+                case 'left':
+                    for(let i = perso.cl-1; i >= 0; i--){
+                        if(mapa[perso.ln][i] != '-' && mapa[perso.ln][i] != '|' && mapa[perso.ln][i] != ' ') {
+                            verificaCidAtual();
+                            cidatual = mapa[perso.ln][i];
+                            mapa[perso.ln][i] = 'A';
+                            break;
+                        } else if(mapa[perso.ln][i] == ' ') {
+                            break;
+                        }
+                    }
+                    break;
+                
+                case 'right':
+                    for(let i = perso.cl+1; i < 23; i++){
+                            if(mapa[perso.ln][i] != '-' && mapa[perso.ln][i] != '|' && mapa[perso.ln][i] != ' ') {
+                            verificaCidAtual();
+                            cidatual = mapa[perso.ln][i];
+                            mapa[perso.ln][i] = 'A';
+                            break;
+                        } else if (mapa[perso.ln][i] == ' '){
+                            break;
+                        }
+                    }
+                    break;
+
+                case 'w':
+                    for(i = perso.ln-1; i >= 0; i--){
+                            if(mapa[i][perso.cl] != '-' && mapa[i][perso.cl] != '|' && mapa[i][perso.cl] != ' ') {
+                            verificaCidAtual();
+                            cidatual = mapa[i][perso.cl];
+                            mapa[i][perso.cl] = 'A';
+                            break;
+                        } else if(mapa[i][perso.cl] == ' ') {
+                            break;
+                        }
+                    }
+                    break;
+
+                case 's':
+                    for(i = perso.ln+1; i < 8; i++){
+                            if(mapa[i][perso.cl] != '-' && mapa[i][perso.cl] != '|' && mapa[i][perso.cl] != ' ') {
+                            verificaCidAtual();
+                            cidatual = mapa[i][perso.cl];
+                            mapa[i][perso.cl] = 'A';
+                            break;
+                        } else if(mapa[i][perso.cl] == ' ') {
+                            break;
+                        }
+                    }
+                    break;
+            }
+        }
  
         window.addEventListener('load', () => {
             inserirMapa();
@@ -110,7 +186,7 @@
         const left = document.querySelector("#left");
         const right = document.querySelector("#right");
         
-        up.addEventListener('click', (e) => console.log(e));
+        left.addEventListener('click', movimento('left'));
         /*
         void verificaCidAtual() {
             if (cidatual == '#' || cidatual == '+' || cidatual == '?'){
@@ -121,70 +197,70 @@
             }
 
             void movimento(char mov) {
-            for(i = 0; i < 8; i++) {
-                for(j = 0; j < 23; j++) {
-                if(mapa[i][j] == 'A') {
-                    perso.ln = i;
-                    perso.cl = j;
+                for(i = 0; i < 8; i++) {
+                    for(j = 0; j < 23; j++) {
+                    if(mapa[i][j] == 'A') {
+                        perso.ln = i;
+                        perso.cl = j;
+                    }
+                    }
                 }
-                }
-            }
             
-            switch (mov) {
-                case 'a':
-                for(i = perso.cl-1; i >= 0; i--){
-                    if(mapa[perso.ln][i] != '-' && mapa[perso.ln][i] != '|' && mapa[perso.ln][i] != ' ') {
-                    verificaCidAtual();
-                    cidatual = mapa[perso.ln][i];
-                    mapa[perso.ln][i] = 'A';
-                    break;
-                    } else if(mapa[perso.ln][i] == ' ') {
-                    break;
+                switch (mov) {
+                    case 'a':
+                    for(i = perso.cl-1; i >= 0; i--){
+                        if(mapa[perso.ln][i] != '-' && mapa[perso.ln][i] != '|' && mapa[perso.ln][i] != ' ') {
+                        verificaCidAtual();
+                        cidatual = mapa[perso.ln][i];
+                        mapa[perso.ln][i] = 'A';
+                        break;
+                        } else if(mapa[perso.ln][i] == ' ') {
+                        break;
+                        }
                     }
-                }
-                break;
+                    break;
 
-                
-                case 'd':
-                for(i = perso.cl+1; i < 23; i++){
-                    if(mapa[perso.ln][i] != '-' && mapa[perso.ln][i] != '|' && mapa[perso.ln][i] != ' ') {
-                    verificaCidAtual();
-                    cidatual = mapa[perso.ln][i];
-                    mapa[perso.ln][i] = 'A';
-                    break;
-                    } else if (mapa[perso.ln][i] == ' '){
-                    break;
+                    
+                    case 'd':
+                    for(i = perso.cl+1; i < 23; i++){
+                        if(mapa[perso.ln][i] != '-' && mapa[perso.ln][i] != '|' && mapa[perso.ln][i] != ' ') {
+                        verificaCidAtual();
+                        cidatual = mapa[perso.ln][i];
+                        mapa[perso.ln][i] = 'A';
+                        break;
+                        } else if (mapa[perso.ln][i] == ' '){
+                        break;
+                        }
                     }
-                }
-                break;
+                    break;
 
 
-                case 'w':
-                for(i = perso.ln-1; i >= 0; i--){
-                    if(mapa[i][perso.cl] != '-' && mapa[i][perso.cl] != '|' && mapa[i][perso.cl] != ' ') {
-                    verificaCidAtual();
-                    cidatual = mapa[i][perso.cl];
-                    mapa[i][perso.cl] = 'A';
-                    break;
-                    } else if(mapa[i][perso.cl] == ' ') {
-                    break;
+                    case 'w':
+                    for(i = perso.ln-1; i >= 0; i--){
+                        if(mapa[i][perso.cl] != '-' && mapa[i][perso.cl] != '|' && mapa[i][perso.cl] != ' ') {
+                        verificaCidAtual();
+                        cidatual = mapa[i][perso.cl];
+                        mapa[i][perso.cl] = 'A';
+                        break;
+                        } else if(mapa[i][perso.cl] == ' ') {
+                        break;
+                        }
                     }
-                }
-                break;
+                    break;
 
-                case 's':
-                for(i = perso.ln+1; i < 8; i++){
-                    if(mapa[i][perso.cl] != '-' && mapa[i][perso.cl] != '|' && mapa[i][perso.cl] != ' ') {
-                    verificaCidAtual();
-                    cidatual = mapa[i][perso.cl];
-                    mapa[i][perso.cl] = 'A';
-                    break;
-                    } else if(mapa[i][perso.cl] == ' ') {
-                    break;
+                    case 's':
+                    for(i = perso.ln+1; i < 8; i++){
+                        if(mapa[i][perso.cl] != '-' && mapa[i][perso.cl] != '|' && mapa[i][perso.cl] != ' ') {
+                        verificaCidAtual();
+                        cidatual = mapa[i][perso.cl];
+                        mapa[i][perso.cl] = 'A';
+                        break;
+                        } else if(mapa[i][perso.cl] == ' ') {
+                        break;
+                        }
                     }
+                    break;
                 }
-                break;
-            }
             }
         }*/
     </script>
