@@ -6,6 +6,8 @@ const left = document.querySelector("#left");
 const right = document.querySelector("#right");
 
 const algodextable = document.querySelector("#tabelaalgodex");
+const algodexcount = document.querySelector("#algodexcount");
+const algodexinsignias = document.querySelector("#insignias");
 
 down.addEventListener('click', () => {movimento('down')});
 up.addEventListener('click', () => {movimento('up')});
@@ -13,6 +15,8 @@ left.addEventListener('click', () => {movimento('left')});
 right.addEventListener('click', () => {movimento('right')});
 
 const mostraAlgodex = () => {
+    algodexcount.innerHTML = `Algodex (${perso.algomons.length}/15)`;
+    algodexinsignias.innerHTML = `Insignias: ${perso.insignias}`;
     algodextable.innerHTML = '';
     perso.algomons.forEach(e => {
         algodextable.innerHTML += 
