@@ -10,8 +10,14 @@ up.addEventListener('click', () => {movimento('up')});
 left.addEventListener('click', () => {movimento('left')});
 right.addEventListener('click', () => {movimento('right')});
 
+const addAlgomon = () => {
+    let algomon = Math.floor(Math.random() * (algomons.length-1));
+    perso.algomons.push(algomons[algomon]);
+    algomons.splice(algomon, 1);
+}
+
 const verificaCidAtual = () => {
-    if (cidatual == '#' || cidatual == '+' ||   cidatual == '?'){
+    if ( cidatual == '#' || cidatual == '+' || cidatual == '?' ){
         mapa[perso.ln][perso.cl] = '+';
     } else if ("ZYXR".includes(cidatual)) {
         mapa[perso.ln][perso.cl] = cidatual;
