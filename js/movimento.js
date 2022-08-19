@@ -74,9 +74,9 @@ const movimento = mov => {
         case 'up':
             for (let i = perso.ln - 1; i >= 0; i--) {
                 if (mapa[i][perso.cl] != '-' && mapa[i][perso.cl] != '|' && mapa[i][perso.cl] != ' ') {
-                    if (mapa[perso.ln][i] == '#')
+                    if (mapa[i][perso.cl] == '#')
                         addAlgomon();
-                    else if ("ZXYR".includes(mapa[perso.ln][i]))
+                    else if ("ZXYR".includes(mapa[i][perso.cl]))
                         dueloAlgomon();
                     verificaCidAtual();
                     cidatual = mapa[i][perso.cl];
@@ -91,9 +91,9 @@ const movimento = mov => {
         case 'down':
             for (let i = perso.ln + 1; i < 8; i++) {
                 if (mapa[i][perso.cl] != '-' && mapa[i][perso.cl] != '|' && mapa[i][perso.cl] != ' ') {
-                    if (mapa[perso.ln][i] == '#')
+                    if (mapa[i][perso.cl] == '#')
                         addAlgomon();
-                    else if ("ZXYR".includes(mapa[perso.ln][i]))
+                    else if ("ZXYR".includes(mapa[i][perso.cl]))
                         dueloAlgomon();
                     verificaCidAtual();
                     cidatual = mapa[i][perso.cl];

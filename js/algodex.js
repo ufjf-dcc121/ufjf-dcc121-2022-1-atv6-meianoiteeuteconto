@@ -5,7 +5,14 @@ const algodexinsignias = document.querySelector("#insignias");
 const mostraAlgodex = () => {
     algodexcount.innerHTML = `Algodex (${perso.algomons.length}/15)`;
     algodexinsignias.innerHTML = `Insignias: ${perso.insignias}`;
-    algodextable.innerHTML = '';
+    algodextable.innerHTML = 
+        `<thead>
+            <td>Algomom</td>
+            <td>Atk</td>
+            <td>HP</td>
+            <td>Tipo</td>
+        </thead>`
+        ;
     perso.algomons.forEach(e => {
         algodextable.innerHTML +=
             `
