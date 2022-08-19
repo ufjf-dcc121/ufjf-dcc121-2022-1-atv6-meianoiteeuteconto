@@ -86,6 +86,27 @@ body {
     padding: 2px;
 }
 
+#combatlog {
+    background: rgb(92, 92, 92);
+    width: 25%;
+    position: absolute;
+    padding: 20px;
+    bottom: 0;
+    right: 0;
+}
+
+#combattext {
+    color: white;
+    border: solid 1px white;
+    height: 270px;
+    overflow-y: scroll;
+}
+
+#combattext > h3 {
+    border-top: solid 4px white;
+    margin-bottom: 5px;
+}
+
 @media (max-width: 740px) {
     #game div > h1 {
         font-size: 20px;
