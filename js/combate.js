@@ -1,3 +1,6 @@
+'use strict';
+
 const dueloAlgomon = () => {
-    console.log("duelooooo");
-}
+    let algomon = Math.floor(Math.random() * (algomons.length - 1))
+    
+};

@@ -40,14 +40,13 @@ const movimento = mov => {
         case 'left':
             for (let i = perso.cl - 1; i >= 0; i--) {
                 if (mapa[perso.ln][i] != '-' && mapa[perso.ln][i] != '|' && mapa[perso.ln][i] != ' ') {
+                    if (mapa[perso.ln][i] == '#')
+                        addAlgomon();
+                    else if ("ZXYR".includes(mapa[perso.ln][i]))
+                        dueloAlgomon();
                     verificaCidAtual();
                     cidatual = mapa[perso.ln][i];
                     mapa[perso.ln][i] = 'A';
-                    console.log(cidatual);
-                    if (cidatual == '#')
-                        addAlgomon();
-                    else if ("ZXYR".includes(cidatual))
-                        dueloAlgomon();
                     break;
                 } else if (mapa[perso.ln][i] == ' ') {
                     break;
@@ -58,14 +57,13 @@ const movimento = mov => {
         case 'right':
             for (let i = perso.cl + 1; i < 23; i++) {
                 if (mapa[perso.ln][i] != '-' && mapa[perso.ln][i] != '|' && mapa[perso.ln][i] != ' ') {
+                    if (mapa[perso.ln][i] == '#')
+                        addAlgomon();
+                    else if ("ZXYR".includes(mapa[perso.ln][i]))
+                        dueloAlgomon();
                     verificaCidAtual();
                     cidatual = mapa[perso.ln][i];
                     mapa[perso.ln][i] = 'A';
-                    console.log(cidatual);
-                    if (cidatual == '#')
-                        addAlgomon();
-                    else if ("ZXYR".includes(cidatual))
-                        dueloAlgomon();
                     break;
                 } else if (mapa[perso.ln][i] == ' ') {
                     break;
@@ -76,14 +74,13 @@ const movimento = mov => {
         case 'up':
             for (let i = perso.ln - 1; i >= 0; i--) {
                 if (mapa[i][perso.cl] != '-' && mapa[i][perso.cl] != '|' && mapa[i][perso.cl] != ' ') {
+                    if (mapa[perso.ln][i] == '#')
+                        addAlgomon();
+                    else if ("ZXYR".includes(mapa[perso.ln][i]))
+                        dueloAlgomon();
                     verificaCidAtual();
                     cidatual = mapa[i][perso.cl];
                     mapa[i][perso.cl] = 'A';
-                    console.log(cidatual);
-                    if (cidatual == '#')
-                        addAlgomon();
-                    else if ("ZXYR".includes(cidatual))
-                        dueloAlgomon();
                     break;
                 } else if (mapa[i][perso.cl] == ' ') {
                     break;
@@ -94,15 +91,13 @@ const movimento = mov => {
         case 'down':
             for (let i = perso.ln + 1; i < 8; i++) {
                 if (mapa[i][perso.cl] != '-' && mapa[i][perso.cl] != '|' && mapa[i][perso.cl] != ' ') {
+                    if (mapa[perso.ln][i] == '#')
+                        addAlgomon();
+                    else if ("ZXYR".includes(mapa[perso.ln][i]))
+                        dueloAlgomon();
                     verificaCidAtual();
                     cidatual = mapa[i][perso.cl];
                     mapa[i][perso.cl] = 'A';
-                    console.log(cidatual);
-                    if (cidatual == '#')
-                        addAlgomon();
-                    else if ("ZXYR".includes(cidatual))
-                        dueloAlgomon();
-                    break;
                 } else if (mapa[i][perso.cl] == ' ') {
                     break;
                 };

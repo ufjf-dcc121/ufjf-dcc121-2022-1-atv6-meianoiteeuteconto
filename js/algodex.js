@@ -19,8 +19,7 @@ const mostraAlgodex = () => {
     });
 };
 
-const addAlgomon = () => {
-    let algomon = Math.floor(Math.random() * (algomons.length - 1));
+const addAlgomon = (algomon = Math.floor(Math.random() * (algomons.length - 1))) => {
     perso.algomons.unshift(algomons[algomon]);
     algomons.splice(algomon, 1);
     mostraAlgodex();
