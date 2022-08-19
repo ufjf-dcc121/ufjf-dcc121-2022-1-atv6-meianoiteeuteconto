@@ -7,7 +7,7 @@ const mostraAlgodex = () => {
     algodexinsignias.innerHTML = `Insignias: ${perso.insignias}`;
     algodextable.innerHTML = '';
     perso.algomons.forEach(e => {
-        algodextable.innerHTML += 
+        algodextable.innerHTML +=
             `
             <tr>
                 <td>${e.nome}</td>
@@ -17,14 +17,14 @@ const mostraAlgodex = () => {
             </tr>
             `;
     });
-}
+};
 
 const addAlgomon = () => {
-    let algomon = Math.floor(Math.random() * (algomons.length-1));
+    let algomon = Math.floor(Math.random() * (algomons.length - 1));
     perso.algomons.unshift(algomons[algomon]);
     algomons.splice(algomon, 1);
-    mostraAlgodex();  
-}
+    mostraAlgodex();
+};
 
 const descePrimeiro = () => {
     perso.algomons.push(perso.algomons.shift());
@@ -34,4 +34,4 @@ const descePrimeiro = () => {
 const levantaUltimo = () => {
     perso.algomons.unshift(perso.algomons.pop());
     mostraAlgodex();
-}
+};

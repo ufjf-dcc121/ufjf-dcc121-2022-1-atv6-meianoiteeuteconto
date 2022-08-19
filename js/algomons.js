@@ -1,5 +1,4 @@
-const algomons = [
-    {
+const algomons = [{
         nome: "Bartossauro",
         atk: 5,
         HP: 20,
