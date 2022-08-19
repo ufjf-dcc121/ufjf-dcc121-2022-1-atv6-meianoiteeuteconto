@@ -22,7 +22,7 @@ const verificaCidAtual = () => {
     if (cidatual == '#' || cidatual == '+' || cidatual == '?') {
         mapa[perso.ln][perso.cl] = '+';
     } else if ("ZYXR".includes(cidatual)) {
-        mapa[perso.ln][perso.cl] = cidatual;
+        mapa[perso.ln][perso.cl] = cidatual.toLowerCase();
     };
 };
 
@@ -43,8 +43,11 @@ const movimento = mov => {
                     verificaCidAtual();
                     cidatual = mapa[perso.ln][i];
                     mapa[perso.ln][i] = 'A';
+                    console.log(cidatual);
                     if (cidatual == '#')
                         addAlgomon();
+                    else if ("ZXYR".includes(cidatual))
+                        dueloAlgomon();
                     break;
                 } else if (mapa[perso.ln][i] == ' ') {
                     break;
@@ -58,8 +61,11 @@ const movimento = mov => {
                     verificaCidAtual();
                     cidatual = mapa[perso.ln][i];
                     mapa[perso.ln][i] = 'A';
+                    console.log(cidatual);
                     if (cidatual == '#')
                         addAlgomon();
+                    else if ("ZXYR".includes(cidatual))
+                        dueloAlgomon();
                     break;
                 } else if (mapa[perso.ln][i] == ' ') {
                     break;
@@ -73,8 +79,11 @@ const movimento = mov => {
                     verificaCidAtual();
                     cidatual = mapa[i][perso.cl];
                     mapa[i][perso.cl] = 'A';
+                    console.log(cidatual);
                     if (cidatual == '#')
                         addAlgomon();
+                    else if ("ZXYR".includes(cidatual))
+                        dueloAlgomon();
                     break;
                 } else if (mapa[i][perso.cl] == ' ') {
                     break;
@@ -88,8 +97,11 @@ const movimento = mov => {
                     verificaCidAtual();
                     cidatual = mapa[i][perso.cl];
                     mapa[i][perso.cl] = 'A';
+                    console.log(cidatual);
                     if (cidatual == '#')
                         addAlgomon();
+                    else if ("ZXYR".includes(cidatual))
+                        dueloAlgomon();
                     break;
                 } else if (mapa[i][perso.cl] == ' ') {
                     break;
