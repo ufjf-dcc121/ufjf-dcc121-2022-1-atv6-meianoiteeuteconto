@@ -21,7 +21,17 @@ const mostraAlgodex = () => {
 
 const addAlgomon = () => {
     let algomon = Math.floor(Math.random() * (algomons.length-1));
-    perso.algomons.push(algomons[algomon]);
+    perso.algomons.unshift(algomons[algomon]);
     algomons.splice(algomon, 1);
     mostraAlgodex();  
+}
+
+const descePrimeiro = () => {
+    perso.algomons.push(perso.algomons.shift());
+    mostraAlgodex();
+};
+
+const levantaUltimo = () => {
+    perso.algomons.unshift(perso.algomons.pop());
+    mostraAlgodex();
 }
