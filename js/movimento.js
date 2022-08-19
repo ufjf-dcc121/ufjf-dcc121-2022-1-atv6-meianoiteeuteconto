@@ -5,16 +5,33 @@ const down = document.querySelector("#down");
 const left = document.querySelector("#left");
 const right = document.querySelector("#right");
 
+const algodextable = document.querySelector("#tabelaalgodex");
+
 down.addEventListener('click', () => {movimento('down')});
 up.addEventListener('click', () => {movimento('up')});
 left.addEventListener('click', () => {movimento('left')});
 right.addEventListener('click', () => {movimento('right')});
 
+const mostraAlgodex = () => {
+    algodextable.innerHTML = '';
+    perso.algomons.forEach(e => {
+        algodextable.innerHTML += 
+            `
+            <tr>
+                <td>${e.nome}</td>
+                <td>${e.atk}</td>
+                <td>${e.HP}</td>
+                <td>${e.type}</td>
+            </tr>
+            `;
+    });
+}
+
 const addAlgomon = () => {
     let algomon = Math.floor(Math.random() * (algomons.length-1));
     perso.algomons.push(algomons[algomon]);
     algomons.splice(algomon, 1);
-    console.log(perso.algomons);    
+    mostraAlgodex();  
 }
 
 const verificaCidAtual = () => {
