@@ -14,6 +14,7 @@ const addAlgomon = () => {
     let algomon = Math.floor(Math.random() * (algomons.length-1));
     perso.algomons.push(algomons[algomon]);
     algomons.splice(algomon, 1);
+    console.log(perso.algomons);    
 }
 
 const verificaCidAtual = () => {
@@ -41,6 +42,8 @@ const movimento = mov => {
                     verificaCidAtual();
                     cidatual = mapa[perso.ln][i];
                     mapa[perso.ln][i] = 'A';
+                    if(cidatual == '#') 
+                        addAlgomon();
                     break;
                 } else if(mapa[perso.ln][i] == ' ') {
                     break;
@@ -54,6 +57,8 @@ const movimento = mov => {
                     verificaCidAtual();
                     cidatual = mapa[perso.ln][i];
                     mapa[perso.ln][i] = 'A';
+                    if(cidatual == '#') 
+                        addAlgomon();
                     break;
                 } else if (mapa[perso.ln][i] == ' '){
                     break;
@@ -67,6 +72,8 @@ const movimento = mov => {
                     verificaCidAtual();
                     cidatual = mapa[i][perso.cl];
                     mapa[i][perso.cl] = 'A';
+                    if(cidatual == '#') 
+                        addAlgomon();
                     break;
                 } else if(mapa[i][perso.cl] == ' ') {
                     break;
@@ -80,6 +87,8 @@ const movimento = mov => {
                     verificaCidAtual();
                     cidatual = mapa[i][perso.cl];
                     mapa[i][perso.cl] = 'A';
+                    if(cidatual == '#') 
+                        addAlgomon();
                     break;
                 } else if(mapa[i][perso.cl] == ' ') {
                     break;
